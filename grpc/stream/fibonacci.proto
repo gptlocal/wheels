@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package fibonacci;
+
+option go_package = "github.com/gptlocal/wheels/grpc/stream";
+
+message FibonacciRequest {
+  int32 number = 1;
+}
+
+message FibonacciResponse {
+  int64 result = 1;
+}
+
+service Fibonacci {
+  rpc Calculate (FibonacciRequest) returns (stream FibonacciResponse);
+}
+
