@@ -20,5 +20,5 @@
 # Go workspace file
 go.work
 
-server
-client
+#server
+#client

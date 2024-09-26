@@ -5,6 +5,7 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net"
+	"time"
 
 	pb "github.com/gptlocal/wheels/grpc/stream"
 )
@@ -24,6 +25,7 @@ func (s *server) Calculate(req *pb.FibonacciRequest, stream pb.Fibonacci_Calcula
 		if err := stream.Send(res); err != nil {
 			return err
 		}
+		time.Sleep(time.Second)
 		a, b = b, a+b
 	}
 

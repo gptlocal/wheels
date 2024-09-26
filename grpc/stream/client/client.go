@@ -20,7 +20,7 @@ func main() {
 
 	client := pb.NewFibonacciClient(conn)
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Second)
 	defer cancel()
 
 	stream, err := client.Calculate(ctx, &pb.FibonacciRequest{Number: 93})
